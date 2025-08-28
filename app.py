@@ -13,7 +13,7 @@ def get_data():
 
     query = """
         SELECT name, age
-        FROM `your-project-id.dataset.table`
+        FROM `acoustic-apex-469415-m0.Flask.Customer'
         LIMIT 10
     """
     query_job = client.query(query)  
