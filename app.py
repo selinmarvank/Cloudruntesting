@@ -12,14 +12,14 @@ def get_data():
     client = bigquery.Client()
 
     query = """
-        SELECT name, age
-        FROM `acoustic-apex-469415-m0.Flask.Customer'
+        SELECT username, Age
+        FROM `acoustic-apex-469415-m0.cart_data.user-age`
         LIMIT 10
     """
     query_job = client.query(query)  
     results = query_job.result()
 
-    rows = [{"name": row.name, "age": row.age} for row in results]
+    rows = [{"username": row.username, "Age": row.Age} for row in results]
     return jsonify(rows)
 
 if __name__ == "__main__":
