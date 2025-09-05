@@ -10,8 +10,11 @@ def hello():
 @app.route("/data")
 def get_data():
     client = bigquery.Client()
-
-    query = """ query_job = client.query(query)  """
+    query = """
+        SELECT Name,Profession,DOB, City
+        FROM `acoustic-apex-469415-m0.data_validation_db.Table1'
+    """
+    query_job = client.query(query)
     results = query_job.result()
 
     return jsonify(rows)
